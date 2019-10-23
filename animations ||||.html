@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/stylesheet.css" />
+    <title>Jquery |||| Animations</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>Jquery |||| Animations</header>
+    <div id="container">
+      <button id="btnFadeOut">Fade Out</button>
+      <button id="btnFadeIn">Fade in</button>
+      <button id="btnFadeTog">Fade Toggle</button>
+      <hr />
+      <div id="box1"><h1>Hello World</h1></div>
+      <br />
+      <button id="btnSlideUp">Slide Up</button>
+      <button id="btnSlideDown">Slide Down</button>
+      <button id="btnSlideTog">Slide Toggle</button>
+      <button id="btnStop">Slide Stop</button>
+      <hr />
+      <div id="box2"><h1>Hello World</h1></div>
+      <br />
+      <button id="moveLeft">Move Left</button>
+      <button id="moveRight">Move Right</button>
+      <button id="moveAround">Move Around</button>
+      <div id="box3"></div>
+    </div>
+    <script>
+      $(function() {
+        /*FADES*/
+        $("#btnFadeOut").click(function() {
+          $("#box1").fadeOut("slow");
+          $("#btnFadeOut").text("It's Gone!");
+        });
+        $("#btnFadeIn").click(function() {
+          $("#box1").fadeIn("fast");
+          $("#btnFadeIn").text("It's Back!");
+        });
+        $("#btnFadeTog").click(function() {
+          $("#box1").fadeToggle(1500); //in milliseconds
+        });
+        /*SLIDES*/
+        $("#btnSlideDown").click(function() {
+          $("#box2").slideDown("slow");
+        });
+        $("#btnSlideUp").click(function() {
+          $("#box2").slideUp("fast");
+        });
+        $("#btnSlideTog").click(function() {
+          $("#box2").slideToggle(1500); //in milliseconds
+        });
+        $("#btnStop").click(function() {
+          $("#box2").stop();
+        });
+        // MOVES
+        $("#moveRight").click(function() {
+          $("#box3").animate({
+            left: 400,
+            height: "250px",
+            width: "250px",
+            opacity: "0.5"
+          });
+        });
+        $("#moveLeft").click(function() {
+          $("#box3").animate({
+            left: 0,
+            height: "100px",
+            width: "100px",
+            opacity: "1"
+          });
+        });
+        $("#moveAround").click(function() {
+          var box = $("#box3");
+          box.animate({
+            left: 400
+          });
+          box.animate({
+            top: 400
+          });
+          box.animate({
+            left: 0,
+            top: 400
+          });
+          box.animate({
+            left: 0,
+            top: 0
+          });
+        });
+      }); //end
+    </script>
+  </body>
+</html>

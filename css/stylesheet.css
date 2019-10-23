@@ -1,0 +1,44 @@
+body {
+  font-size: 17px;
+  font-family: arial;
+  background: #f4f4f4;
+  line-height: 1.5em;
+  margin-bottom: 500px;
+}
+
+header {
+  background: #333333;
+  color: #ffff;
+  padding: 20px;
+  text-align: center;
+  border-bottom: 4px #000 solid;
+  margin-bottom: 10px;
+}
+
+#container {
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+}
+
+.myClass {
+  color: blue;
+  background: black;
+}
+
+#box1,
+#box2 {
+  background: #333;
+  color: #fff;
+  width: 500px;
+  height: 90px;
+  padding: 40px;
+  text-align: center;
+}
+
+#box3 {
+  background-color: red;
+  height: 100px;
+  width: 100px;
+  position: relative;
+}

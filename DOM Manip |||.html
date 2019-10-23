@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/stylesheet.css" />
+    <title>Jquery ||| DOM Manip</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>Jquery ||| DOM Manipulation</header>
+    <div id="container">
+      <button id="btn1">Button 1</button>
+      <p class="para1">This is a paragraph</p>
+      <p class="para2">This is another paragraph</p>
+      <div id="myDiv"></div>
+      <input type="text" id="newItem" />
+      <ul>
+        <li>List Item 1</li>
+        <li>List Item 2</li>
+        <li>List Item 3</li>
+        <li>List Item 4</li>
+      </ul>
+      <a href="https://google.com">Google</a>
+      <ul id="users"></ul>
+    </div>
+    <script>
+      $(function() {
+        // $(".para1").css({ color: "red", background: "#ccc" });
+        // // $(".para2").addClass("myClass");
+        // // $(".para2").removeClass("myClass");
+        // $("#btn1").click(function() {
+        //   $(".para2").toggleClass("myClass");
+        // });
+        // // $("#myDiv").text("Hello World");
+        // $("#myDiv").html("<h1>Hello World</h1>");
+        // $("ul").append("<li>Append List Item</li>");
+        // $("ul").prepend("<li>Prepend List Item</li>");
+        // $(".para1").appendTo(".para2");
+        // $(".para1").prependTo(".para2");
+        // $("ul").before("<h4>Hello</h4>");
+        // $("ul").after("<h4>World</h4>");
+        // $("ul").empty();
+        // $("ul").detach();
+        // $("a").attr("target", "_blank");
+        $("#newItem").keyup(function(e) {
+          var code = e.which;
+          if (code == 13) {
+            e.preventDefault();
+            $("ul").append("<li>" + e.target.value + "<li>");
+          }
+        });
+        var myArr = ["Brad", "Kelley", "Nate", "Jose"];
+        $.each(myArr, function(i, val) {
+          // console.log(val);
+          $("#users").append("<li>" + val + "</li>");
+        });
+      }); //end
+    </script>
+  </body>
+</html>

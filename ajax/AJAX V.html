@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/ajax/stylesheet2.css" />
+    <title>Jquery AJAX V</title>
+    <style>
+      body {
+        font-size: 17px;
+        font-family: arial;
+        background: #f4f4f4;
+        line-height: 1.5em;
+        margin-bottom: 500px;
+      }
+
+      header {
+        background: #333333;
+        color: #ffff;
+        padding: 20px;
+        text-align: center;
+        border-bottom: 4px #000 solid;
+        margin-bottom: 10px;
+      }
+
+      #container {
+        width: 90%;
+        margin: auto;
+        padding: 10px;
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>Jquery AJAX V</header>
+    <div id="container">
+      <div id="result"></div>
+      <!-- ******GETTING JSON LOCAL FILE METHOD****** -->
+      <ul id="users"></ul>
+      <!-- ******send POST REQUEST to external API USING AJAX****** -->
+      <h3>Add Post</h3>
+      <form id="postForm" action="https://jsonplaceholder.typicode.com/posts">
+        <input type="text" id="title" placeholder="Title" /><br />
+        <textarea placeholder="Body" id="body"></textarea><br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <script>
+      $(function() {
+        // $("#result").load("test.html", function(responseTxt, statusTxt, xhr) {
+        //   if (statusTxt == "success") {
+        //     alert("It went fine");
+        //   } else if (statusTxt == "error") {
+        //     alert("Error: " + xhr.statusText);
+        //   }
+        // });
+        // $.get("test.html", function(data) {
+        //   $("#result").html(data);
+        // });
+        // ******GETTING JSON LOCAL FILE METHOD******
+        // $.getJSON("users.json", function(data) {
+        //   $.each(data, function(i, user) {
+        //     $("#users").append("<li>" + user.firstName + "</li>");
+        //   });
+        // });
+        // $.ajax({
+        //   method: "GET",
+        //   url: "https://jsonplaceholder.typicode.com/posts",
+        //   dataType: "JSON"
+        // }).done(function(data) {
+        //   console.log(data); //only shows on console
+        //   $.map(data, function(post, i) {
+        //     $("#result").append(
+        //       "<h3>" + post.title + "</h3><p>" + post.body + "</p>"
+        //     );
+        //   });
+        // });
+        // ******send POST REQUEST to external API USING AJAX******
+        $("#postForm").submit(function(e) {
+          e.preventDefault();
+
+          var title = $("#title").val();
+          var body = $("#body").val();
+          var url = $(this).attr("action");
+
+          $.post(url, { title: title, body: body }).done(function(data) {
+            console.log("Post Saved");
+            console.log(data);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

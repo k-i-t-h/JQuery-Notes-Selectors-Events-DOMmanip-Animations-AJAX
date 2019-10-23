@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/stylesheet.css" />
+    <title>Jquery || EVENTS</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>Jquery || EVENTS</header>
+    <div id="container">
+      <h3>Mouse Events</h3>
+      <button id="btn1">Button 1</button>
+      <button id="btn2">Button 2</button>
+      <p class="para1">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio impedit,
+        reprehenderit, pariatur in eveniet excepturi alias aliquam error, velit
+        commodi debitis molestiae? Nobis vero necessitatibus velit dicta amet
+        laudantium commodi.
+      </p>
+
+      <!-- <h1 id="coords"></h1> -->
+      <hr />
+      <form id="form">
+        <label>Name</label><br />
+        <input type="text" id="name" name="name" />
+        <br />
+        <label>Email</label><br />
+        <input type="email" id="email" name="email" />
+        <br />
+        <label>Gender</label><br />
+        <select name="gender" id="gender">
+          <option value="male">Male</option>
+          <option value="male">Female</option>
+        </select>
+        <br />
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <script>
+      $(function() {
+        // $("#btn1").click(function() {
+        //   alert("Button Clicked!");
+        // });
+        // $("#btn1").click(function() {
+        //   // $(".para1").hide();
+        //   $(".para1").toggle();
+        // });
+        // $("#btn2").dblclick(function() {
+        //   // $(".para1").show();
+        //   $(".para1").toggle();
+        // });
+        // $("#btn1").hover(function() {
+        //   $(".para1").toggle();
+        // });
+        // $("#btn1").mousedown(function() {
+        //   $(".para1").toggle();
+        // });
+        // $("#btn1").mouseup(function() {
+        //   $(".para1").toggle();
+        // });
+        // $("#btn1").click(function(e) {
+        //   // alert(e.currentTarget.id);
+        //   // alert(e.currentTarget.innerHTML);
+        //   // alert(e.currentTarget.outerHTML);
+        // });
+        // $(document).on("mousemove", function(e) {
+        //   $("#coords").html("Coords: Y: " + e.clientY + " X: " + e.clientX);
+        // });
+        $("input").focus(function() {
+          // $("input#name").css("background", "pink");
+          $(this).css("background", "pink");
+        });
+        // $("input").blur(function() {
+        //   $(this).css("background", "white");
+        // });
+        // $("input").keyup(function(e) {
+        //   console.log(e.target.value);
+        // });THIS IS USED TO "KEYLOG USER'S INPUT"
+        $("select#gender").change(function(e) {
+          alert(e.target.value);
+        });
+
+        $("#form").submit(function(e) {
+          e.preventDefault();
+          var name = $("input#name").val();
+          console.log(name);
+        });
+      }); //end
+    </script>
+  </body>
+</html>
